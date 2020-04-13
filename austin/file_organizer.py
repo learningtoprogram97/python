@@ -1,14 +1,22 @@
 import os
-import sys
+
+"""
+@Author Austin
+Folder Organizer
+"""
+
+
+# TODO: add more file extension clean ups.
+# TODO: Move files into folder destination.
 
 
 class Colors:
     HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
+    BLUE = '\033[94m'
     GREEN = '\033[92m'
     YELLOW = '\033[93m'
     RED = '\033[91m'
-    ENDC = '\033[0m'
+    END = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
@@ -30,15 +38,15 @@ def photos():
     try:
         # Create target Directory
         os.mkdir(dir_name)
-        print(f"{Colors.HEADER}Directory{Colors.ENDC} {dir_name} {Colors.HEADER}Created{Colors.ENDC} \n")
+        print(f"{Colors.HEADER}Directory{Colors.END} {dir_name} {Colors.HEADER}Created{Colors.END} \n")
     except FileExistsError:
         # checks if folder exists
-        print(f"{Colors.RED}Directory {Colors.ENDC}{dir_name} {Colors.RED}already exists{Colors.ENDC}\n")
+        print(f"{Colors.RED}Directory {Colors.END}{dir_name} {Colors.RED}already exists{Colors.END}\n")
     for file in os.listdir(folder_location):
         if file.endswith(photo_file_extensions):
             # prints all file types
             # Create directory
-            print(f"{Colors.YELLOW}File Name:{Colors.ENDC} {file}")
+            print(f"{Colors.YELLOW}File Name:{Colors.END} {file}")
     documents()
 
 
@@ -48,15 +56,15 @@ def documents():
     try:
         # Create target Directory
         os.mkdir(dir_name)
-        print(f"{Colors.HEADER}Directory{Colors.ENDC} {dir_name} {Colors.HEADER}Created{Colors.ENDC} \n")
+        print(f"{Colors.HEADER}Directory{Colors.END} {dir_name} {Colors.HEADER}Created{Colors.END} \n")
     except FileExistsError:
         # checks if folder exists
-        print(f"{Colors.RED}Directory {Colors.ENDC}{dir_name} {Colors.RED}already exists{Colors.ENDC}\n")
+        print(f"{Colors.RED}Directory {Colors.END}{dir_name} {Colors.RED}already exists{Colors.END}\n")
     for file in os.listdir(folder_location):
         if file.endswith(document_file_extensions):
             # prints all file types
             # Create directory
-            print(f"{Colors.OKBLUE}File Name:{Colors.ENDC} {file}")
+            print(f"{Colors.BLUE}File Name:{Colors.END} {file}")
 
 
 photos()
